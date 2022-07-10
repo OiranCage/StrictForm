@@ -1,0 +1,22 @@
+{
+	"name": "splaturn/strict-form",
+	"description": "form with strong validation",
+	"minimum-stability": "stable",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "famima65536",
+			"email": "famima65536@gmail.com"
+		}
+	],
+	"require": {
+	},
+	"require-dev": {
+		"pocketmine/pocketmine-mp": "^4.5.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"": "src"
+		}
+	}
+}
