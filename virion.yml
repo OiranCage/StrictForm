@@ -1,6 +1,6 @@
 name: strictform
 version: 1.0.0
-antigen: net\splaturn\strictform
+antigen: oirancage\strictform
 api: 4.0.0
 authors:
   - famima65536

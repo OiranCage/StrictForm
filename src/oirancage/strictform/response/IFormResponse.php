@@ -1,6 +1,6 @@
 <?php
 
-namespace net\splaturn\strictform\response;
+namespace oirancage\strictform\response;
 
 use pocketmine\player\Player;
 

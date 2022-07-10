@@ -1,8 +1,8 @@
 <?php
 
-namespace net\splaturn\strictform\component;
+namespace oirancage\strictform\component;
 
-use net\splaturn\strictform\component\exception\InvalidFormResponseException;
+use oirancage\strictform\component\exception\InvalidFormResponseException;
 
 interface ICustomFormComponent extends IComponent{
 	public function getType() : string;

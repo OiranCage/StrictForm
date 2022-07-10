@@ -1,6 +1,6 @@
 <?php
 
-namespace net\splaturn\strictform\component\exception;
+namespace oirancage\strictform\component\exception;
 
 /**
  * throws when form response from client is invalid.

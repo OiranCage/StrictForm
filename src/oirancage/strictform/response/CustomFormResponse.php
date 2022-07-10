@@ -1,15 +1,15 @@
 <?php
 
-namespace net\splaturn\strictform\response;
+namespace oirancage\strictform\response;
 
 use InvalidArgumentException;
-use net\splaturn\strictform\component\Dropdown;
-use net\splaturn\strictform\component\exception\InvalidFormResponseException;
-use net\splaturn\strictform\component\ICustomFormComponent;
-use net\splaturn\strictform\component\Input;
-use net\splaturn\strictform\component\Slider;
-use net\splaturn\strictform\component\StepSlider;
-use net\splaturn\strictform\component\Toggle;
+use oirancage\strictform\component\Dropdown;
+use oirancage\strictform\component\exception\InvalidFormResponseException;
+use oirancage\strictform\component\ICustomFormComponent;
+use oirancage\strictform\component\Input;
+use oirancage\strictform\component\Slider;
+use oirancage\strictform\component\StepSlider;
+use oirancage\strictform\component\Toggle;
 use pocketmine\player\Player;
 
 class CustomFormResponse implements IFormResponse{

@@ -1,9 +1,9 @@
 <?php
 
-namespace net\splaturn\strictform\response;
+namespace oirancage\strictform\response;
 
-use net\splaturn\strictform\component\Button;
-use net\splaturn\strictform\component\exception\InvalidFormResponseException;
+use oirancage\strictform\component\Button;
+use oirancage\strictform\component\exception\InvalidFormResponseException;
 use pocketmine\player\Player;
 
 class SimpleFormResponse{

@@ -1,8 +1,8 @@
 <?php
 
-namespace net\splaturn\strictform\response;
+namespace oirancage\strictform\response;
 
-use net\splaturn\strictform\component\Button;
+use oirancage\strictform\component\Button;
 use pocketmine\player\Player;
 
 class ModalFormResponse implements IFormResponse{

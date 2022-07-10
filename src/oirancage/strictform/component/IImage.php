@@ -1,6 +1,6 @@
 <?php
 
-namespace net\splaturn\strictform\component;
+namespace oirancage\strictform\component;
 
 interface IImage{
 	public function getType() : string;

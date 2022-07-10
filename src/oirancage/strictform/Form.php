@@ -1,6 +1,6 @@
 <?php
 
-namespace net\splaturn\strictform;
+namespace oirancage\strictform;
 
 use Closure;
 use pocketmine\form\Form as IForm;

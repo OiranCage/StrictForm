@@ -2,12 +2,12 @@
 
 declare(strict_types = 1);
 
-namespace net\splaturn\strictform;
+namespace oirancage\strictform;
 
 use Closure;
-use net\splaturn\strictform\component\Button;
-use net\splaturn\strictform\component\exception\InvalidFormResponseException;
-use net\splaturn\strictform\response\SimpleFormResponse;
+use oirancage\strictform\component\Button;
+use oirancage\strictform\component\exception\InvalidFormResponseException;
+use oirancage\strictform\response\SimpleFormResponse;
 use pocketmine\player\Player;
 use pocketmine\utils\Utils;
 

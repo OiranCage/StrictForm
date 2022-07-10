@@ -1,6 +1,6 @@
 <?php
 
-namespace net\splaturn\strictform\component;
+namespace oirancage\strictform\component;
 
 interface IComponent{
 	public function getName() : string;
