@@ -15,9 +15,11 @@ use pocketmine\player\Player;
 class CustomFormResponse implements IFormResponse{
 
 	private array $validatedResponse;
+	/** @var array<string, ICustomFormComponent> */
+	private array $componentMap = [];
 
 	/**
-	 * @phpstan-param ICustomFormComponent[] $components
+	 * @phpstan-param array<int, ICustomFormComponent> $components
 	 * @phpstan-param array                  $validatedResponse
 	 * @throws InvalidFormResponseException
 	 */
@@ -27,6 +29,9 @@ class CustomFormResponse implements IFormResponse{
 		array $rawResponse
 	){
 		self::validate($this->components, $rawResponse);
+		foreach($this->components as $component){
+			$this->componentMap[$component->getName()] = $component;
+		}
 		$this->validatedResponse = $rawResponse;
 	}
 
@@ -50,7 +55,7 @@ class CustomFormResponse implements IFormResponse{
 	}
 
 	public function getStepSliderValue(string $name) : string{
-		$component = $this->components[$name] ?? null;
+		$component = $this->componentMap[$name] ?? null;
 		if(!$component instanceof StepSlider){
 			throw new InvalidArgumentException("Wrong type response is detected.");
 		}
@@ -58,7 +63,7 @@ class CustomFormResponse implements IFormResponse{
 	}
 
 	public function getSliderValue(string $name) : int{
-		$component = $this->components[$name] ?? null;
+		$component = $this->componentMap[$name] ?? null;
 		if(!$component instanceof Slider){
 			throw new InvalidArgumentException("Wrong type response is detected.");
 		}
@@ -66,7 +71,7 @@ class CustomFormResponse implements IFormResponse{
 	}
 
 	public function getToggleValue(string $name) : bool{
-		$component = $this->components[$name] ?? null;
+		$component = $this->componentMap[$name] ?? null;
 		if(!$component instanceof Toggle){
 			throw new InvalidArgumentException("Wrong type response is detected.");
 		}
@@ -74,7 +79,7 @@ class CustomFormResponse implements IFormResponse{
 	}
 
 	public function getInputValue(string $name) : string{
-		$component = $this->components[$name] ?? null;
+		$component = $this->componentMap[$name] ?? null;
 		if(!$component instanceof Input){
 			throw new InvalidArgumentException("Wrong type response is detected.");
 		}
@@ -82,7 +87,7 @@ class CustomFormResponse implements IFormResponse{
 	}
 
 	public function getDropdownValue(string $name) : string{
-		$component = $this->components[$name] ?? null;
+		$component = $this->componentMap[$name] ?? null;
 		if(!$component instanceof Dropdown){
 			throw new InvalidArgumentException("Wrong type response is detected.");
 		}
