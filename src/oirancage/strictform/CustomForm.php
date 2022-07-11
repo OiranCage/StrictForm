@@ -44,7 +44,7 @@ class CustomForm implements Form {
 				($this->onErrorCallback)($exception);
 				return;
 			}
-			if($this->onSuccessCallback === null){
+			if($this->onSuccessCallback !== null){
 				($this->onSuccessCallback)($response);
 			}
 			return;

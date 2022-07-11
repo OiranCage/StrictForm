@@ -35,7 +35,7 @@ class ModalForm implements Form{
 
 		if(is_bool($data)){
 			$response = new ModalFormResponse($player, $data);
-			if($this->onSuccessCallback === null){
+			if($this->onSuccessCallback !== null){
 				($this->onSuccessCallback)($response);
 			}
 			return;

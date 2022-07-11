@@ -46,9 +46,8 @@ class SimpleForm implements Form {
 				($this->onErrorCallback)($exception);
 				return;
 			}
-			$callback = $this->onSuccessCallback;
-			if($callback !== null){
-				$callback($response);
+			if($this->onSuccessCallback !== null){
+				($this->onSuccessCallback)($response);
 			}
 			return;
 		}
