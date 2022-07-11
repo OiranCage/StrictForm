@@ -63,7 +63,7 @@ class CustomFormResponse implements IFormResponse{
 		return $component->getOption($this->validatedResponse[$name])->getName();
 	}
 
-	public function getSliderValue(string $name) : int{
+	public function getSliderValue(string $name) : int|float{
 		$component = $this->componentMap[$name] ?? null;
 		if(!$component instanceof Slider){
 			throw new InvalidArgumentException("Wrong type response is detected.");

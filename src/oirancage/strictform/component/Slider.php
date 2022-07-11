@@ -9,10 +9,10 @@ class Slider implements ICustomFormComponent{
 	public function __construct(
 		private string $name,
 		private string $text,
-		private int $min,
-		private int $max,
-		private ?int $step = null,
-		private ?int $default = null
+		private float $min,
+		private float $max,
+		private ?float $step = null,
+		private ?float $default = null
 	){
 	}
 
@@ -44,9 +44,9 @@ class Slider implements ICustomFormComponent{
 	 * @inheritDoc
 	 */
 	public function validate(string|int|float|bool|null $value) : void{
-		if(!is_int($value)){
+		if(!is_int($value) && !is_float($value)){
 			$type = gettype($value);
-			throw new InvalidFormResponseException("type int is expected, $type is given.");
+			throw new InvalidFormResponseException("type int or float is expected, $type is given.");
 		}
 		if($value < $this->min || $this->max < $value){
 			throw new InvalidFormResponseException("value should be ranged in {$this->min} ~ {$this->max}, $value given.");
