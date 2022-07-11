@@ -6,7 +6,7 @@ use oirancage\strictform\component\Button;
 use pocketmine\player\Player;
 
 class ModalFormResponse implements IFormResponse{
-	private int $validatedResponse;
+	private bool $validatedResponse;
 
 	/**
 	 * @phpstan-param Button[] $buttons
@@ -24,7 +24,7 @@ class ModalFormResponse implements IFormResponse{
 		return $this->player;
 	}
 
-	public function getSelectedValue() : string{
+	public function getSelectedValue() : bool{
 		return $this->validatedResponse;
 	}
 }
