@@ -43,7 +43,7 @@ class Slider implements ICustomFormComponent{
 	/**
 	 * @inheritDoc
 	 */
-	public function validate(mixed $value) : void{
+	public function validate(string|int|float|bool|null $value) : void{
 		if(!is_int($value)){
 			$type = gettype($value);
 			throw new InvalidFormResponseException("type int is expected, $type is given.");

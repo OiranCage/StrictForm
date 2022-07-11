@@ -78,7 +78,7 @@ class CustomFormResponse implements IFormResponse{
 		if(!$component instanceof Input){
 			throw new InvalidArgumentException("Wrong type response is detected.");
 		}
-		return $this->validatedResponse[$name];
+		return (string) $this->validatedResponse[$name];
 	}
 
 	public function getDropdownValue(string $name) : string{

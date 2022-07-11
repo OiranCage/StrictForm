@@ -34,6 +34,6 @@ class Input implements ICustomFormComponent{
 	/**
 	 * @inheritDoc
 	 */
-	public function validate(mixed $value) : void{
+	public function validate(string|int|float|bool|null $value) : void{
 	}
 }

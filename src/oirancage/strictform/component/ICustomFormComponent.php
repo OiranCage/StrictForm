@@ -10,5 +10,5 @@ interface ICustomFormComponent extends IComponent{
 	/**
 	 * @throws InvalidFormResponseException when value type or value its self is invalid.
 	 */
-	public function validate(mixed $value) : void;
+	public function validate(string|int|float|bool|null $value) : void;
 }

@@ -27,7 +27,7 @@ class Label implements ICustomFormComponent{
 		return "label";
 	}
 
-	public function validate(mixed $value) : void{
+	public function validate(string|int|float|bool|null $value) : void{
 		if(!is_null($value)){
 			$type = gettype($value);
 			throw new InvalidFormResponseException("type null is expected, $type given.");

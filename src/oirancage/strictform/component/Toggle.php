@@ -32,7 +32,7 @@ class Toggle implements ICustomFormComponent{
 		return "toggle";
 	}
 
-	public function validate(mixed $value) : void{
+	public function validate(string|int|float|bool|null $value) : void{
 		if(!is_bool($value)){
 			$type = gettype($value);
 			throw new InvalidFormResponseException("value should be bool, $type is given.");
