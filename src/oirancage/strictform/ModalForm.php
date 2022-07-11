@@ -7,6 +7,7 @@ namespace oirancage\strictform;
 use Closure;
 use oirancage\strictform\component\exception\InvalidFormResponseException;
 use oirancage\strictform\response\ModalFormResponse;
+use pocketmine\form\FormValidationException;
 use pocketmine\player\Player;
 use pocketmine\utils\Utils;
 
@@ -26,27 +27,26 @@ class ModalForm implements Form{
 
 	public function handleResponse(Player $player, $data) : void{
 		if(is_null($data)){
-			$callback = $this->onCloseCallback;
-			if($callback !== null){
-				$callback($player);
+			if($this->onCloseCallback !== null){
+				($this->onCloseCallback)($player);
 			}
 			return;
 		}
 
 		if(is_bool($data)){
 			$response = new ModalFormResponse($player, $data);
-			$callback = $this->onSuccessCallback;
-			if($callback !== null){
-				$callback($response);
+			if($this->onSuccessCallback === null){
+				($this->onSuccessCallback)($response);
 			}
 			return;
 		}
 
-		$callback = $this->onErrorCallback;
-		if($callback !== null){
-			$type = gettype($data);
-			$callback($player, new InvalidFormResponseException("type null or bool is expected, $type given."));
+		$type = gettype($data);
+		$exception = new InvalidFormResponseException("type null or bool is expected, $type given.");
+		if($this->onErrorCallback === null){
+			throw new FormValidationException($exception->getMessage());
 		}
+		($this->onErrorCallback)($player, $exception);
 	}
 
 	public function onSuccess(Closure $callback) : void{

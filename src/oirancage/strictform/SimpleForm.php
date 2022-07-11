@@ -8,6 +8,7 @@ use Closure;
 use oirancage\strictform\component\Button;
 use oirancage\strictform\component\exception\InvalidFormResponseException;
 use oirancage\strictform\response\SimpleFormResponse;
+use pocketmine\form\FormValidationException;
 use pocketmine\player\Player;
 use pocketmine\utils\Utils;
 
@@ -29,9 +30,8 @@ class SimpleForm implements Form {
 
 	public function handleResponse(Player $player, $data) : void{
 		if(is_null($data)){
-			$callback = $this->onCloseCallback;
-			if($callback !== null){
-				$callback($player);
+			if($this->onCloseCallback !== null){
+				($this->onCloseCallback)($player);
 			}
 			return;
 		}
@@ -40,10 +40,10 @@ class SimpleForm implements Form {
 			try{
 				$response = new SimpleFormResponse($player, $this->buttons, $data);
 			}catch(InvalidFormResponseException $exception){
-				$callback = $this->onErrorCallback;
-				if($callback !== null){
-					$callback($player, $exception);
+				if($this->onErrorCallback === null){
+					throw new FormValidationException($exception->getMessage());
 				}
+				($this->onErrorCallback)($exception);
 				return;
 			}
 			$callback = $this->onSuccessCallback;
@@ -53,11 +53,12 @@ class SimpleForm implements Form {
 			return;
 		}
 
-		$callback = $this->onErrorCallback;
-		if($callback !== null){
-			$type = gettype($data);
-			$callback($player, new InvalidFormResponseException("type null or int is expected, $type given."));
+		$type = gettype($data);
+		$exception = new InvalidFormResponseException("type null or int is expected, $type given.");
+		if($this->onErrorCallback === null){
+			throw new FormValidationException($exception->getMessage());
 		}
+		($this->onErrorCallback)($player, $exception);
 	}
 
 	/**
