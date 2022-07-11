@@ -14,7 +14,8 @@ use pocketmine\player\Player;
 
 class CustomFormResponse implements IFormResponse{
 
-	private array $validatedResponse;
+	/** @var array<string, mixed>  */
+	private array $validatedResponse = [];
 	/** @var array<string, ICustomFormComponent> */
 	private array $componentMap = [];
 
@@ -29,10 +30,10 @@ class CustomFormResponse implements IFormResponse{
 		array $rawResponse
 	){
 		self::validate($this->components, $rawResponse);
-		foreach($this->components as $component){
+		foreach($this->components as $key => $component){
 			$this->componentMap[$component->getName()] = $component;
+			$this->validatedResponse[$component->getName()] = $rawResponse[$key];
 		}
-		$this->validatedResponse = $rawResponse;
 	}
 
 	/**
