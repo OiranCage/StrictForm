@@ -26,6 +26,13 @@ class CustomForm implements Form {
 	){
 	}
 
+	/**
+	 * @phpstan-param ICustomFormComponent[] $components
+	 */
+	public static function create(string $title, array $components) : self{
+		return new self($title, $components);
+	}
+
 	public function handleResponse(Player $player, $data) : void{
 		if(is_null($data)){
 			if($this->onCloseCallback !== null){

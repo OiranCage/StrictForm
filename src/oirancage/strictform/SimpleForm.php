@@ -28,6 +28,13 @@ class SimpleForm implements Form {
 	){
 	}
 
+	/**
+	 * @phpstan-param Button[] $buttons
+	 */
+	public static function create(string $title, string $content, array $buttons) : self{
+		return new self($title, $content, $buttons);
+	}
+
 	public function handleResponse(Player $player, $data) : void{
 		if(is_null($data)){
 			if($this->onCloseCallback !== null){

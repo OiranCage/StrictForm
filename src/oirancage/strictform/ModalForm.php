@@ -25,6 +25,10 @@ class ModalForm implements Form{
 	){
 	}
 
+	public static function create(string $title, string $content, string $button1, string $button2) : self{
+		return new self($title, $content, $button1, $button2);
+	}
+
 	public function handleResponse(Player $player, $data) : void{
 		if(is_null($data)){
 			if($this->onCloseCallback !== null){
