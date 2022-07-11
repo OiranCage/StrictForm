@@ -25,7 +25,7 @@ class StepSlider implements ICustomFormComponent{
 		$json = [
 			"type" => $this->getType(),
 			"text" => $this->text,
-			"options" => array_map(fn(StringEnumOption $option) : string => $option->getText(), $this->options)
+			"steps" => array_map(fn(StringEnumOption $option) : string => $option->getText(), $this->options)
 		];
 
 		if($this->default !== null){
