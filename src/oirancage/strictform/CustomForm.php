@@ -70,24 +70,27 @@ class CustomForm implements Form {
 	/**
 	 * @phpstan-param Closure(CustomFormResponse $response):void $callback
 	 */
-	public function onSuccess(Closure $callback) : void{
+	public function onSuccess(Closure $callback) : self{
 		Utils::validateCallableSignature(function(CustomFormResponse $response) : void{}, $callback);
 		$this->onSuccessCallback = $callback;
+		return $this;
 	}
 
 	/**
 	 * @phpstan-param Closure(Player $player, InvalidFormResponseException $exception):void $callback
 	 */
-	public function onValidationError(Closure $callback) : void{
+	public function onValidationError(Closure $callback) : self{
 		Utils::validateCallableSignature(function(Player $player, InvalidFormResponseException $exception) : void{}, $callback);
 		$this->onErrorCallback = $callback;
+		return $this;
 	}
 
 	/**
 	 * @phpstan-param Closure(Player $response):void $callback
 	 */
-	public function onClose(Closure $callback) : void{
+	public function onClose(Closure $callback) : self{
 		Utils::validateCallableSignature(function(Player $player) : void{}, $callback);
 		$this->onCloseCallback = $callback;
+		return $this;
 	}
 }
