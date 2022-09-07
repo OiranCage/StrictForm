@@ -65,7 +65,7 @@ class CustomForm implements Form {
 		($this->onErrorCallback)($player, $exception);
 	}
 
-	public function jsonSerialize(){
+	public function jsonSerialize() : array{
 		return [
 			"type" => "custom_form",
 			"title" => $this->title,

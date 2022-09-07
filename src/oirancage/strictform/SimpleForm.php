@@ -94,7 +94,7 @@ class SimpleForm implements Form {
 		return $this;
 	}
 
-	public function jsonSerialize(){
+	public function jsonSerialize() : array{
 		return [
 			"type" => "form",
 			"title" => $this->title,

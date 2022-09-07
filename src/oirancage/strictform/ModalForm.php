@@ -77,7 +77,7 @@ class ModalForm implements Form{
 		return $this;
 	}
 
-	public function jsonSerialize(){
+	public function jsonSerialize() : array{
 		return [
 			"type" => "modal",
 			"title" => $this->title,
