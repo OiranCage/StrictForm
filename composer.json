@@ -19,7 +19,7 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"\\oirancage\\strictform\\": "src/oirancage/strictform"
+			"oirancage\\strictform\\": "src/oirancage/strictform"
 		}
 	}
 }
