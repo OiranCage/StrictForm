@@ -12,7 +12,10 @@
 	"require": {
 	},
 	"require-dev": {
-		"pocketmine/pocketmine-mp": "^4.5.0"
+		"pocketmine/pocketmine-mp": "^5.0.0-ALPHA",
+		"pocketmine/bedrock-block-upgrade-schema": "dev-master@dev",
+		"pocketmine/bedrock-data": "dev-modern-world-support@dev",
+		"pocketmine/bedrock-item-upgrade-schema": "dev-master@dev"
 	},
 	"autoload": {
 		"psr-4": {
